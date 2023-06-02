@@ -1,0 +1,10 @@
+#home-background-1 {
+  background-image: url('../images/pattern.svg');
+  opacity: 0.5;
+}
+
+#home-background-2 {
+  background-image: url('../images/log.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
