@@ -8,7 +8,7 @@ export default function weightedLogarithmicAverage(measurements) {
       time = measurements[i].time * 60;
       numerator += Math.pow(10, measurements[i].noise / 10) * time;
       denominator += time;
-    }
+    } 
   }
   return (10 * Math.log10(numerator / denominator)).toFixed(2);
 }

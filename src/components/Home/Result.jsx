@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from 'react';
-('use client');
 import { GlobalGeneralContext } from '../../Provider/contexts/GlobalGeneralContext';
 import weightedLogarithmicAverage from '../../utils/weightedLogarithmicAverage';
 import { nanoid } from 'nanoid';
@@ -24,7 +23,7 @@ function Result() {
     } else {
       setEnquadra('Nenhum período(s).');
     }
-    if (r) {
+    if (parseFloat(r)) {
       setResult(r);
     }
   }, [measures]);
@@ -34,7 +33,7 @@ function Result() {
     autoTable(doc, {
       html: table,
       startY: 20,
-      theme: 'striped',
+      theme: 'grid',
     });
     doc.save('table.pdf');
   };
@@ -80,9 +79,16 @@ function Result() {
         </tbody>
         <tfoot>
           <tr className="bg-slate-200 border-b">
-            <td className="px-6 py-4 font-bold text-lg" colSpan="3">
-              RESULTADO: {result} dB(A)
-            </td>
+            {result && (
+              <td className="px-6 py-4 font-bold text-lg" colSpan="3">
+                RESULTADO: {result} dB(A)
+              </td>
+            )}
+            {!result && (
+              <td className="px-6 py-4 font-bold text-lg" colSpan="3">
+                RESULTADO:
+              </td>
+            )}
           </tr>
           <tr className="bg-white border-b">
             <td className="px-6 py-4 font-bold" colSpan="3"></td>

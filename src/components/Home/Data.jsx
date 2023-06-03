@@ -1,5 +1,4 @@
 import { useEffect, useState, useContext } from 'react';
-('use client');
 import { Label, TextInput } from 'flowbite-react';
 import { GlobalGeneralContext } from '../../Provider/contexts/GlobalGeneralContext';
 import InputMask from 'react-input-mask';

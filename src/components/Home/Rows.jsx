@@ -1,5 +1,4 @@
 import React, { useContext, useCallback, useState } from 'react';
-('use client');
 import { Alert } from 'flowbite-react';
 import { GlobalGeneralContext } from '../../Provider/contexts/GlobalGeneralContext';
 import generalActions from '../../Provider/actions/generalActions';
