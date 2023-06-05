@@ -7,11 +7,11 @@ import { Button } from 'flowbite-react';
 
 function Rows() {
   const generalContext = useContext(GlobalGeneralContext);
-  const [alert, setAlert] = useState(false);
   const {
     dispatchGeneralState,
     contextGeneralState: { measures },
   } = generalContext;
+  const [alert, setAlert] = useState(false);
 
   const handleTiBlur = useCallback(
     (e, index) => {
@@ -86,13 +86,20 @@ function Rows() {
         },
       ],
     });
+    dispatchGeneralState({
+      type: generalActions.result,
+      payload: 0,
+    });
   };
 
   return (
     <>
       {measures.map((measure, index) => (
         <React.Fragment key={nanoid(5)}>
-          <div className="grid gap-6 mb-6 grid-cols-2 w-full mx-auto">
+          <div
+            className="grid gap-6 mb-6 grid-cols-2 w-full mx-auto"
+            data-testid="measures-input"
+          >
             <div>
               <input
                 type="text"
@@ -102,6 +109,7 @@ function Rows() {
                 defaultValue={measure?.noise}
                 onBlur={(e) => handleTiBlur(e, index)}
                 onMouseOver={getFocus}
+                data-testid="ti-input"
               />
             </div>
             <div>
@@ -113,6 +121,7 @@ function Rows() {
                 defaultValue={measure?.time}
                 onBlur={(e) => handleLiBlur(e, index)}
                 onMouseOver={getFocus}
+                data-testid="li-input"
               />
             </div>
           </div>
@@ -133,6 +142,7 @@ function Rows() {
           color="gray"
           className="hover:shadow-sm"
           onClick={handleClickIncreaseLine}
+          data-testid="more-rows"
         >
           +
         </Button>
@@ -148,6 +158,7 @@ function Rows() {
         type="button"
         className="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-full text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
         onClick={clearMeasures}
+        data-testid="clear-li-ti"
       >
         Limpar
       </button>

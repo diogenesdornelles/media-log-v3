@@ -4,29 +4,44 @@ import weightedLogarithmicAverage from '../../utils/weightedLogarithmicAverage';
 import { nanoid } from 'nanoid';
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
+import generalActions from '../../Provider/actions/generalActions';
 
 function Result() {
   const generalContext = useContext(GlobalGeneralContext);
   const {
-    contextGeneralState: { measures, ano, empresa, number, parte, register },
+    dispatchGeneralState,
+    contextGeneralState: {
+      measures,
+      ano,
+      empresa,
+      number,
+      parte,
+      register,
+      result,
+      sector,
+      hasDeveloper,
+      developer,
+    },
   } = generalContext;
-  const [result, setResult] = useState('');
-  const [enquadra, setEnquadra] = useState('');
+  const [recognition, setRecognition] = useState('');
   useEffect(() => {
-    const r = weightedLogarithmicAverage(measures);
-    if (r > 90) {
-      setEnquadra('Período(s) em qualquer época.');
-    } else if (r <= 90 && r > 85) {
-      setEnquadra('Período(s) até 05/03/1997 e a partir de 19/11/2003.');
-    } else if (r <= 85 && r > 80) {
-      setEnquadra('Período(s) até 05/03/1997.');
+    const avg = weightedLogarithmicAverage(measures);
+    if (avg > 90) {
+      setRecognition('Período(s) em qualquer época.');
+    } else if (avg <= 90 && avg > 85) {
+      setRecognition('Período(s) até 05/03/1997 e a partir de 19/11/2003.');
+    } else if (avg <= 85 && avg > 80) {
+      setRecognition('Período(s) até 05/03/1997.');
     } else {
-      setEnquadra('Nenhum período(s).');
+      setRecognition('Nenhum período(s).');
     }
-    if (parseFloat(r)) {
-      setResult(r);
+    if (parseFloat(avg)) {
+      dispatchGeneralState({
+        type: generalActions.result,
+        payload: avg,
+      });
     }
-  }, [measures]);
+  }, [measures, dispatchGeneralState]);
   const saveToPDF = () => {
     const doc = new jsPDF();
     const table = document.getElementById('table-avg-noise');
@@ -61,7 +76,7 @@ function Result() {
             </th>
           </tr>
         </thead>
-        <tbody>
+        <tbody data-testid="table-body">
           {measures.map((measure, index) => (
             <React.Fragment key={nanoid(6)}>
               <tr className="bg-white border-b" style={{ height: '70px' }}>
@@ -78,17 +93,14 @@ function Result() {
           ))}
         </tbody>
         <tfoot>
-          <tr className="bg-slate-200 border-b">
-            {result && (
-              <td className="px-6 py-4 font-bold text-lg" colSpan="3">
-                RESULTADO: {result} dB(A)
-              </td>
-            )}
-            {!result && (
-              <td className="px-6 py-4 font-bold text-lg" colSpan="3">
-                RESULTADO:
-              </td>
-            )}
+          <tr className="bg-slate-200 border-b" data-testid="row-result">
+            <td className="px-6 py-4 font-bold text-lg" colSpan="3">
+              RESULTADO:
+              <span className="px-2" data-testid="result" role="result">
+                {result}
+              </span>
+              dB(A)
+            </td>
           </tr>
           <tr className="bg-white border-b">
             <td className="px-6 py-4 font-bold" colSpan="3"></td>
@@ -131,7 +143,19 @@ function Result() {
           </tr>
           <tr className="bg-slate-100 border-b">
             <td className="px-6 py-4 font-bold" colSpan="3">
-              Enquadra: {enquadra}
+              Setor: {sector}
+            </td>
+          </tr>
+          {hasDeveloper && (
+            <tr className="bg-slate-100 border-b">
+              <td className="px-6 py-4 font-bold" colSpan="3">
+                Elaborado por: {developer}
+              </td>
+            </tr>
+          )}
+          <tr className="bg-slate-100 border-b">
+            <td className="px-6 py-4 font-bold" colSpan="3">
+              Enquadra: {recognition}
             </td>
           </tr>
         </tfoot>

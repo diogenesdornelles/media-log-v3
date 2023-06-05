@@ -25,7 +25,10 @@ function Home() {
           Cálculo
         </h1>
       </div>
-      <p className="text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400 p-10 animate__animated animate__fadeInLeft">
+      <p
+        className="text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400 p-10 animate__animated animate__fadeInLeft"
+        data-testid="paragraph"
+      >
         Ferramenta destinada ao cálculo de intensidade de exposição ocupacional
         ao ruído por meio de extração da média logarítmica dos diversos níveis
         verificados no ambiente de trabalho.

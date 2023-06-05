@@ -4,6 +4,10 @@ export const globalGeneralState = {
   register: '',
   empresa: '',
   ano: '',
+  result: 0,
+  sector: '',
+  developer: '',
+  hasDeveloper: false,
   measures: [
     {
       noise: '',

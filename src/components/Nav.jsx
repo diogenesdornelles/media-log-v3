@@ -7,9 +7,10 @@ function Nav() {
       <Navbar fluid={true} rounded={false}>
         <Navbar.Brand href="/">
           <img
-            alt="Flowbite React Logo"
+            alt="Logo noise"
             className="mr-3 h-6 sm:h-9"
             src={img}
+            data-testid="logo"
           />
           <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
             Media-Log

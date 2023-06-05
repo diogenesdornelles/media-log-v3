@@ -45,6 +45,34 @@ export const reducer = (state, action) => {
         measures: payload,
       };
     }
+    case generalActions.result: {
+      const { payload } = action;
+      return {
+        ...state,
+        result: payload,
+      };
+    }
+    case generalActions.sector: {
+      const { payload } = action;
+      return {
+        ...state,
+        sector: payload,
+      };
+    }
+    case generalActions.developer: {
+      const { payload } = action;
+      return {
+        ...state,
+        developer: payload,
+      };
+    }
+    case generalActions.hasDeveloper: {
+      const { payload } = action;
+      return {
+        ...state,
+        hasDeveloper: payload,
+      };
+    }
   }
   return { ...state };
 };
