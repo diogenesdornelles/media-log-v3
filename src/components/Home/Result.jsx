@@ -6,6 +6,11 @@ import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
 import generalActions from '../../Provider/actions/generalActions';
 
+/**
+ * Component JSX that render Result
+ * @returns {JSX.Element} - return Result
+ */
+
 function Result() {
   const generalContext = useContext(GlobalGeneralContext);
   const {

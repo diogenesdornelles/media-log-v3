@@ -3,6 +3,11 @@ import Measures from './Measures';
 import Sheet from './Sheet';
 import Data from './Data';
 
+/**
+ * Component JSX that render Content Homepage
+ * @returns {JSX.Element} - return Content Homepage
+ */
+
 function Content() {
   return (
     <div

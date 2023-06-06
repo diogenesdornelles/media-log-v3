@@ -4,6 +4,11 @@ import Content from '../components/Home/Content';
 import 'animate.css';
 import '../assets/css/Home.css';
 
+/**
+ * Component JSX that render Home page
+ * @returns {JSX.Element} - return page
+ */
+
 function Home() {
   return (
     <div>

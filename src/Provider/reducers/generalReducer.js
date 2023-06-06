@@ -1,5 +1,13 @@
 import generalActions from '../actions/generalActions';
 
+/**
+ * Reducer states and actions from Context.
+ *
+ * @param {Object} state  - The application general state.
+ * @param {string} action - The action to be switched.
+ * @returns {Object} - The application general state.
+ */
+
 export const reducer = (state, action) => {
   const { type } = action;
   switch (type) {

@@ -1,3 +1,8 @@
+/**
+ * Component JSX that render General Info
+ * @returns {JSX.Element} - return General Info
+ */
+
 function Info() {
   return (
     <ul className="mr-10 space-y-1 text-gray-500 list-disc list-inside w-full p-4 bg-white border-2 border-gray-300 border-dashed rounded-lg hover:shadow-md">

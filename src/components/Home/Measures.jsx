@@ -1,5 +1,9 @@
 import Rows from './Rows';
 
+/**
+ * Component JSX that render Measurements
+ * @returns {JSX.Element} - return Measurements
+ */
 function Measures() {
   return (
     <form

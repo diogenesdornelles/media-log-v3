@@ -5,6 +5,11 @@ import generalActions from '../../Provider/actions/generalActions';
 import { nanoid } from 'nanoid';
 import { Button } from 'flowbite-react';
 
+/**
+ * Component JSX that render Rows
+ * @returns {JSX.Element} - return Rows
+ */
+
 function Rows() {
   const generalContext = useContext(GlobalGeneralContext);
   const {

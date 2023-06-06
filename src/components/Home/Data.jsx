@@ -5,12 +5,24 @@ import InputMask from 'react-input-mask';
 import moment from 'moment';
 import generalActions from '../../Provider/actions/generalActions';
 
+/**
+ * Return true if input number is valid.
+ *
+ * @param {string} inputString - The measurements object.
+ * @returns {boolean} - If is valid.
+ */
+
 function parseProcessNumber(inputString) {
   const processNumberRegex =
     /^(\d{7}-\d{2}[./]\d{4}[./]\d{1}[./]\d{2}[./]\d{4})$/g;
   const match = processNumberRegex.exec(inputString);
   return match;
 }
+
+/**
+ * Component JSX that render Data Registration
+ * @returns {JSX.Element} - return Data Registration
+ */
 
 function Data() {
   const [isValidNumber, setIsValidNumber] = useState(false);

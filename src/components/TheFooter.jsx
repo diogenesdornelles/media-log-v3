@@ -1,6 +1,11 @@
 import { Footer } from 'flowbite-react';
 import img from '../assets/images/github.png';
 
+/**
+ * Component JSX that render Footer Homepage
+ * @returns {JSX.Element} - return Footer Homepage
+ */
+
 function TheFooter() {
   return (
     <Footer

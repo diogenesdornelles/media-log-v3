@@ -1,3 +1,12 @@
+/**
+ * Calculate the average noise based on measurements.
+ *
+ * @param {Object} measurements - The measurements object.
+ * @param {number} measurements.noise - The noise measurement.
+ * @param {number} measurements.time - The time measurement.
+ * @returns {number} - The average noise.
+ */
+
 export default function weightedLogarithmicAverage(measurements) {
   let numerator = 0;
   let denominator = 0;
@@ -10,5 +19,5 @@ export default function weightedLogarithmicAverage(measurements) {
       denominator += time;
     }
   }
-  return (10 * Math.log10(numerator / denominator)).toFixed(2);
+  return (10 * Math.log10(numerator / denominator)).toFixed(2) || 0;
 }

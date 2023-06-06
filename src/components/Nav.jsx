@@ -1,6 +1,11 @@
 import { Navbar } from 'flowbite-react';
 import img from '../assets/images/somOndulado.png';
 
+/**
+ * Component JSX that render Nav Homepage
+ * @returns {JSX.Element} - return Nav Homepage
+ */
+
 function Nav() {
   return (
     <div className="sticky top-0 z-[9999]">

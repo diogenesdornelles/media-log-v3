@@ -1,5 +1,10 @@
 import Result from './Result';
 
+/**
+ * Component JSX that render Sheet
+ * @returns {JSX.Element} - return Sheet
+ */
+
 function Sheet() {
   return (
     <div

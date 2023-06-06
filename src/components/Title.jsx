@@ -1,5 +1,10 @@
 import 'animate.css';
 
+/**
+ * Component JSX that render Title Homepage
+ * @returns {JSX.Element} - return Title Homepage
+ */
+
 function Title() {
   return (
     <>
