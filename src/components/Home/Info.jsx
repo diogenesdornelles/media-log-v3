@@ -5,7 +5,7 @@
 
 function Info() {
   return (
-    <ul className="mr-10 space-y-1 text-gray-500 list-disc list-inside w-full p-4 bg-white border-2 border-gray-300 border-dashed rounded-lg hover:shadow-md">
+    <ul className="mr-10 space-y-1 text-gray-500 list-disc list-inside w-full p-4 bg-white border-2 border-gray-300 border-dashed rounded-lg transition-all shadeable">
       <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white mb-8">
         Informações gerais:
       </h5>
