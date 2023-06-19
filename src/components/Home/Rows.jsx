@@ -78,7 +78,8 @@ function Rows() {
   };
 
   const getFocus = (e) => {
-    e.target.focus();
+    //e.target.focus();
+    e.target.scrollIntoView({ behavior: 'smooth', block: 'center' });
   };
 
   const clearMeasures = () => {
