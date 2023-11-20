@@ -77,10 +77,10 @@ function Rows() {
     });
   };
 
-  const getFocus = (e) => {
-    //e.target.focus();
-    e.target.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  };
+  // const getFocus = (e) => {
+  //   //e.target.focus();
+  //   e.target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  // };
 
   const clearMeasures = () => {
     dispatchGeneralState({
@@ -114,7 +114,6 @@ function Rows() {
                 pattern="[0-9]{0,3}"
                 defaultValue={measure?.noise}
                 onBlur={(e) => handleTiBlur(e, index)}
-                onMouseOver={getFocus}
                 data-testid="ti-input"
               />
             </div>
@@ -126,7 +125,6 @@ function Rows() {
                 pattern="[0-9]{0,3}"
                 defaultValue={measure?.time}
                 onBlur={(e) => handleLiBlur(e, index)}
-                onMouseOver={getFocus}
                 data-testid="li-input"
               />
             </div>
